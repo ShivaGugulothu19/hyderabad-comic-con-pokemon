@@ -206,7 +206,7 @@ export async function generateTrainerCardPdf(
 
     ctx.fillStyle = '#f87171';
     ctx.font = 'bold 13px "Arial", sans-serif';
-    ctx.fillText('OFFICIAL FAN EXPERIENCE • HITEX HYDERABAD', 105, 872);
+    ctx.fillText('OFFICIAL FAN EXPERIENCE • BHARAT FUTURE CITY', 105, 872);
     ctx.fillStyle = '#94a3b8';
     ctx.font = '11px "Arial", sans-serif';
     ctx.fillText('GENERATED ON COMIC CON ARENA SYSTEM', 105, 892);

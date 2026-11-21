@@ -15,14 +15,61 @@ export interface GeneratedPokemon extends Pokemon {
 export type Gender = 'Male' | 'Female' | 'Prefer not to say';
 
 export type ComicConTeam =
-  | 'Cosplay Registrations'
-  | 'Event Management'
+  | 'Welcoming'
+  | 'Ticketing & Entry Area Management'
+  | 'Media Desk'
+  | 'Research'
+  | 'Cosplay Registration'
+  | 'Cosplay Buddies'
+  | 'Cosplay Mechanic'
+  | 'Damage Control'
+  | 'Client Servicing'
+  | 'Social Media'
+  | 'Assistants to Photographers'
+  | 'Assistants to Videographers'
+  | 'CCI Office'
+  | 'CCI Store'
+  | 'International Guest Management'
+  | 'Indian Celebrity Management'
+  | 'A/V Setup'
+  | 'Stage'
+  | 'Security'
   | 'Operations'
-  | 'Artist Alley'
-  | 'Gaming'
-  | 'Photography'
-  | 'General Attendee'
-  | 'Other';
+  | 'Sales'
+  | 'Food & Beverages'
+  | 'Game Admins'
+  | 'Crowd Management'
+  | 'Cosplay Registrations'
+  | 'Other'
+  | (string & {});
+
+export const COMIC_CON_TEAMS: string[] = [
+  'Welcoming',
+  'Ticketing & Entry Area Management',
+  'Media Desk',
+  'Research',
+  'Cosplay Registration',
+  'Cosplay Buddies',
+  'Cosplay Mechanic',
+  'Damage Control',
+  'Client Servicing',
+  'Social Media',
+  'Assistants to Photographers',
+  'Assistants to Videographers',
+  'CCI Office',
+  'CCI Store',
+  'International Guest Management',
+  'Indian Celebrity Management',
+  'A/V Setup',
+  'Stage',
+  'Security',
+  'Operations',
+  'Sales',
+  'Food & Beverages',
+  'Game Admins',
+  'Crowd Management',
+  'Other'
+];
 
 export interface TrainerProfile {
   name: string;

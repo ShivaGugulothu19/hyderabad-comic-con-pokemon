@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { User, Calendar, Award, Sparkles, AlertCircle } from 'lucide-react';
-import { Gender, ComicConTeam, TrainerProfile } from '../data/pokemonData';
+import { Gender, ComicConTeam, TrainerProfile, COMIC_CON_TEAMS } from '../data/pokemonData';
 import { generateTrainerId } from '../utils/teamGenerator';
 
 interface TrainerFormProps {
@@ -8,22 +8,12 @@ interface TrainerFormProps {
   onCancel?: () => void;
 }
 
-const COMIC_CON_TEAMS: ComicConTeam[] = [
-  'Cosplay Registrations',
-  'Event Management',
-  'Operations',
-  'Artist Alley',
-  'Gaming',
-  'Photography',
-  'General Attendee',
-  'Other'
-];
-
 export const TrainerForm: React.FC<TrainerFormProps> = ({ onSubmit, onCancel }) => {
   const [name, setName] = useState('');
   const [age, setAge] = useState<string>('');
   const [gender, setGender] = useState<Gender>('Male');
-  const [comicConTeam, setComicConTeam] = useState<ComicConTeam>('Cosplay Registrations');
+  const [comicConTeam, setComicConTeam] = useState<ComicConTeam>('Welcoming');
+  const [otherTeamName, setOtherTeamName] = useState('');
 
   const [errors, setErrors] = useState<{ name?: string; age?: string }>({});
 
@@ -57,11 +47,15 @@ export const TrainerForm: React.FC<TrainerFormProps> = ({ onSubmit, onCancel }) 
     // Female character random assignment: Dawn or Serena
     const femaleCharacter = Math.random() > 0.5 ? 'Dawn' : 'Serena';
 
+    const finalTeam = isSteven
+      ? 'Cosplay Registrations'
+      : (comicConTeam === 'Other' && otherTeamName.trim() ? otherTeamName.trim() : comicConTeam);
+
     const profile: TrainerProfile = {
       name: trimmedName,
       age: parsedAge,
       gender,
-      comicConTeam: isSteven ? 'Cosplay Registrations' : comicConTeam,
+      comicConTeam: finalTeam,
       trainerId: generateTrainerId(),
       femaleCharacter,
       isEasterEggSteven: isSteven
@@ -192,6 +186,19 @@ export const TrainerForm: React.FC<TrainerFormProps> = ({ onSubmit, onCancel }) 
                 ▼
               </div>
             </div>
+
+            {comicConTeam === 'Other' && (
+              <div className="mt-2.5">
+                <input
+                  type="text"
+                  value={otherTeamName}
+                  onChange={(e) => setOtherTeamName(e.target.value)}
+                  placeholder="Specify custom squad / department name..."
+                  maxLength={35}
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-400/20 text-xs transition-all"
+                />
+              </div>
+            )}
           </div>
 
           {/* Privacy Note */}

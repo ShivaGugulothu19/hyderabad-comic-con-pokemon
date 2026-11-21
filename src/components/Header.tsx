@@ -39,10 +39,10 @@ export const Header: React.FC<HeaderProps> = ({ onReset, showReset }) => {
         </div>
 
         {/* Right side actions */}
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-1.5 text-xs text-slate-400 bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-800">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>HITEX Hyderabad</span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-400 bg-slate-900/80 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full border border-slate-800">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span className="whitespace-nowrap font-medium">Bharat Future City</span>
           </div>
 
           {showReset && (
